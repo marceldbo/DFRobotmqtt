@@ -12,13 +12,11 @@ DFRobot Raspberry Pi UPS to MQTT script including notifications via a Pushover S
 
 To install:
 
-- Go into /home/pi directory and do:
-- Run: `git clone https://github.com/marceldbo/DFRobotmqtt.git`
+- Go into /home/pi directory and run `git clone https://github.com/marceldbo/DFRobotmqtt.git`
 
 To update:
 
-- From the /home/pi/DFRobotmqtt directory, using a command line, do:
-- `git pull` followed by a sudo systemctl daemon-reload
+- From the /home/pi/DFRobotmqtt directory, using a command line, do: `git pull` followed by a sudo systemctl daemon-reload
 
 ## Configuration
 
