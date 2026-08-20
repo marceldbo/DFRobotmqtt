@@ -56,51 +56,51 @@ And do:
                                             
 Also edit the pyvenv.cfg file and set correct directory path:
 
-  `home = /usr/bin
-  include-system-site-packages = false
-  version = 3.11.2
-  executable = /usr/bin/python3.11
-  command = /usr/bin/python3 -m venv /home/pi/DFRobotmqtt/dfrobot-venv`                                                                                                                                                                                                     
+  `home = /usr/bin`
+  `include-system-site-packages = false`
+  `version = 3.11.2`
+  `executable = /usr/bin/python3.11`
+  `command = /usr/bin/python3 -m venv /home/pi/DFRobotmqtt/dfrobot-venv`                                                                                                                                                                                                     
 Now save the file and **deactivate** the venv:
 
-  (dfrobot-venv) pi@hostname:~/DFRobotmqtt $ deactivate
+  `(dfrobot-venv) pi@hostname:~/DFRobotmqtt $ deactivate`
   
 We will return to the normal prompt and are ready to configure and run dfrobotmqtt.py as a background service: 
 
-  sudo cp dfrobotmqtt.service /lib/systemd/system/dfrobotmqtt.service
-  sudo nano /lib/systemd/system/dfrobotmqtt.service
+  `sudo cp dfrobotmqtt.service /lib/systemd/system/dfrobotmqtt.service`
+  `sudo nano /lib/systemd/system/dfrobotmqtt.service`
   
 and change the paths in WorkingDirectory and ExecStart to the location of pijuicemqtt.py. Because we are using a venv, we need to use the full path into the virtual environment:
 
-  [Unit]
-  Description=DFRobot UPS to MQTT
-  After=multi-user.target
-  StartLimitIntervalSec=610
-  StartLimitBurst=10
+  `[Unit]`
+  `Description=DFRobot UPS to MQTT`
+  `After=multi-user.target`
+  `StartLimitIntervalSec=610`
+  `StartLimitBurst=10`
 
-  [Service]
-  WorkingDirectory=/home/pi/DFRobotmqtt
-  User=pi
-  Type=idle
-  ExecStart=/home/pi/DFRobotmqtt/dfrobot-venv/bin/python3 /home/pi/DFRobotmqtt/dfrobotmqtt.py
-  Restart=always
-  RestartSec=30
+  `[Service]`
+  `WorkingDirectory=/home/pi/DFRobotmqtt`
+  `User=pi`
+  `Type=idle`
+  `ExecStart=/home/pi/DFRobotmqtt/dfrobot-venv/bin/python3 /home/pi/DFRobotmqtt/dfrobotmqtt.py`
+  `Restart=always`
+  `RestartSec=30`
 
-  [Install]
-  WantedBy=multi-user.target
+  `[Install]`
+  `WantedBy=multi-user.target`
 
 Now save and exit. Make sure that the **mosquitto mqtt broker** is running before starting the dfrobotmqtt.service as follows:
 
-  sudo systemctl daemon-reload
-  sudo systemctl enable dfrobotmqtt.service
-  sudo systemctl start dfrobotmqtt.service
-  sudo systemctl status dfrobotmqtt.service
+  `sudo systemctl daemon-reload`
+  `sudo systemctl enable dfrobotmqtt.service`
+  `sudo systemctl start dfrobotmqtt.service`
+  `sudo systemctl status dfrobotmqtt.service`
 
 You should see the background service active and running. Depending on the configuration the service will publish the status to MQTT every 30 seconds. The script will restart automatically if it crashes, and after Pi restart.
 
 The script can be stopped by:
 
-  sudo systemctl stop dfrobotmqtt.service
+  `sudo systemctl stop dfrobotmqtt.service`
 
 In addition, you can change the scripts to define what happens when the power drops below a certain point e.g. stopping certain applications and do a graceful shutdown. In case of a Watchdog time-out, the system will be restarted and a notification will be send via pushover.
 
