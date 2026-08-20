@@ -22,25 +22,25 @@ To update:
 
 Open the /home/pi/DFRobotmqtt directory and copy the config.yaml.example file to config.yaml:
 
-  cp config.yaml.example config.yaml
+- cp config.yaml.example config.yaml
   
 Open the **config.yaml** file and change the MQTT Broker IP and hostname and the broker username/password. If no username/password is required to use your broker then delete the username and password lines. Also configure the Pushover parameters e.g. user, token and desired messages. Save the file.
 
 The next step is to create a python virtual environment (venv) in the DFRobotmqtt directory:
 
-  python3 -m venv dfrobot-venv
+- python3 -m venv dfrobot-venv
   
 and activate the virtual environment:
 
-  source dfrobot-venv/bin/activate
+- source dfrobot-venv/bin/activate
   
 The prompt will look like this:
 
-  (dfrobot-venv) pi@hostname:~/DFRobotmqtt $
+- (dfrobot-venv) pi@hostname:~/DFRobotmqtt $
 
 Now go into the virtual environment:
 
-  (dfrobot-venv) pi@hostname:~/DFRobotmqtt $ cd dfrobot-venv
+- (dfrobot-venv) pi@hostname:~/DFRobotmqtt $ cd dfrobot-venv
   
 Do an **ls**, the contents should look like this:
 
@@ -48,11 +48,11 @@ Do an **ls**, the contents should look like this:
   
 Copy the requirement.txt file from DFRobotmqtt into the venv:
 
-  cp ../requirements.txt .
+- cp ../requirements.txt .
   
 And do: 
                              
-  pip install -r requirements.txt
+- pip install -r requirements.txt
                                             
 Also edit the pyvenv.cfg file and set correct directory path:
 
