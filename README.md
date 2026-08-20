@@ -103,9 +103,3 @@ The script can be stopped by:
   `sudo systemctl stop dfrobotmqtt.service`
 
 In addition, you can change the scripts to define what happens when the power drops below a certain point e.g. stopping certain applications and do a graceful shutdown. In case of a Watchdog time-out, the system will be restarted and a notification will be send via pushover.
-
-## Ideas and TO DO's
-
-- More generic external controls e.g. external control for a Heat Exchanger, etc.
-- Support for separate language files as currently the devices are created in English.
-- Adding a combined text device with system serial numbers, RTE, charge/discharge cycles etc.  
