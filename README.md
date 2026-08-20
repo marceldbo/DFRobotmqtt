@@ -40,7 +40,7 @@ The prompt will look like this:
 
 Now go into the virtual environment:
 
-- (dfrobot-venv) pi@hostname:~/DFRobotmqtt $ cd dfrobot-venv
+  `(dfrobot-venv) pi@hostname:~/DFRobotmqtt $ cd dfrobot-venv`
   
 Do an **ls**, the contents should look like this:
 
@@ -48,19 +48,19 @@ Do an **ls**, the contents should look like this:
   
 Copy the requirement.txt file from DFRobotmqtt into the venv:
 
-- cp ../requirements.txt .
+  `cp ../requirements.txt .`
   
 And do: 
                              
-- pip install -r requirements.txt
+  `pip install -r requirements.txt`
                                             
 Also edit the pyvenv.cfg file and set correct directory path:
 
-  home = /usr/bin
+  `home = /usr/bin
   include-system-site-packages = false
   version = 3.11.2
   executable = /usr/bin/python3.11
-  command = /usr/bin/python3 -m venv /home/pi/DFRobotmqtt/dfrobot-venv                                                                                                                                                                                                     
+  command = /usr/bin/python3 -m venv /home/pi/DFRobotmqtt/dfrobot-venv`                                                                                                                                                                                                     
 Now save the file and **deactivate** the venv:
 
   (dfrobot-venv) pi@hostname:~/DFRobotmqtt $ deactivate
