@@ -1,9 +1,5 @@
 # DFRobotmqtt
-DFRobot Raspberry Pi UPS to MQTT code and scripts
-
-# Domoticz INDEVOLT Plugin
-
-This plugin for Domoticz uses the local OpenData API for INDEVOLT home battery systems.
+DFRobot Raspberry Pi UPS to MQTT script including notifications via a pushover SMS service. The solution also triggers two separate scripts: one when a low power threshold has been reached and one when the Watchdog timer runs out.
 
 ## Implemented features summary
 
