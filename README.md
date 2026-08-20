@@ -1,5 +1,5 @@
 # DFRobotmqtt
-DFRobot Raspberry Pi UPS to MQTT script including notifications via a pushover SMS service. The solution also triggers two separate scripts: one when a low power threshold has been reached and one when the Watchdog timer runs out.
+DFRobot Raspberry Pi UPS to MQTT script including notifications via a Pushover SMS service. The solution also triggers two separate scripts: one when a low power threshold has been reached and one when the Watchdog timer runs out.
 
 ## Implemented features summary
 
