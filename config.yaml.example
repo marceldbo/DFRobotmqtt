@@ -1,0 +1,109 @@
+# ============================================================
+# DFRobot UPS configuration file
+# ============================================================
+
+i2c:
+  bus: 1
+  address: 0x10
+
+
+# ============================================================
+# MQTT
+# ============================================================
+
+mqtt:
+  broker: "localhost" # or IP address
+  port: 1883
+
+  username: ""
+  password: ""
+
+  client_id: "dfrobot-ups"
+
+  topic: "dfrobotmqtt/ups"
+  status_topic: "dfrobotmqtt/ups/status"
+
+  reconnect_delay: 10
+
+
+# ============================================================
+# Monitoring
+# ============================================================
+
+monitor:
+  update_interval: 30
+
+
+# ============================================================
+# Low battery
+# ============================================================
+
+low_battery:
+  # Trigger alarm below this percentage
+  threshold: 7
+
+  # Clear alarm at or above this percentage
+  reset_threshold: 10.0
+
+  # Python script to execute
+  script: "/home/pi/dfrobotmqtt/ups_low_battery.py"
+
+  # Delay before shutting down Raspberry Pi
+  shutdown_delay: 20
+
+
+# ============================================================
+# Watchdog
+# ============================================================
+
+watchdog:
+  # Maximum time without a successful UPS reading
+  timeout: 60
+
+  # Python script to execute
+  script: "/home/pi/dfrobotmqtt/ups_watchdog.py"
+
+
+# ============================================================
+# Pushover
+# ============================================================
+
+pushover:
+
+  enabled: true
+
+
+  # ----------------------------------------------------------
+  # Pushover credentials
+  # ----------------------------------------------------------
+
+  token: "<YourPushoverToken>"
+
+  user: "<YourPushoverUserCredentials>"
+
+
+  # ----------------------------------------------------------
+  # Low battery notification
+  # ----------------------------------------------------------
+
+  low_battery:
+
+    title: "Lage batterij geconstateerd!"
+
+    priority: 1
+
+    message: "<YourServerHostname> gaat veilig afsluiten."
+
+
+  # ----------------------------------------------------------
+  # Watchdog notification
+  # ----------------------------------------------------------
+
+  watchdog:
+
+    title: "Watchdog geinitieerde herstart!"
+
+    priority: 1
+
+    message: "<YourServerHostname> is opnieuw opgestart."
+
