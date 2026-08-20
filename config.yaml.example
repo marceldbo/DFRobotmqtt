@@ -46,7 +46,7 @@ low_battery:
   reset_threshold: 10.0
 
   # Python script to execute
-  script: "/home/pi/dfrobotmqtt/ups_low_battery.py"
+  script: "/home/pi/DFRobotmqtt/ups_low_battery.py"
 
   # Delay before shutting down Raspberry Pi
   shutdown_delay: 20
@@ -61,7 +61,7 @@ watchdog:
   timeout: 60
 
   # Python script to execute
-  script: "/home/pi/dfrobotmqtt/ups_watchdog.py"
+  script: "/home/pi/DFRobotmqtt/ups_watchdog.py"
 
 
 # ============================================================
